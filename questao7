@@ -1,0 +1,4 @@
+p = mat + 1;
+
+//Essa expressão é valida porque p está recebendo o endereço de "mat" e somando em uma unidade e assim fazendo o endereço aual de "p" caminhar em 4 bytes.
+// que não seria possivel fazer com o array mat porque seu endereço é fixo.
