@@ -1,0 +1,4 @@
+O primeiro programa com as saídas 4, 9 e 13 está ultilizando a proriedade de dereferenciação 
+com o endereço do array "vet" e somando "i" unidades a esse endereço. A variavel inteira "i" 
+consegue ao final do processo percorer todos os elementos do array com o auxilo dessa variavel 
+inteira, o que antes não seria possivel pelo fato do endereço do array ser fixo.
