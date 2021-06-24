@@ -1,0 +1,23 @@
+◦ x for declarado como char?
+char = 1 byte
+x+1= 4092+1 = 4093
+x+2= 4092+2 = 4094
+x+3= 4092+3 = 4095
+
+◦ x for declarado como int?
+int = 2 bytes
+x+1= 4092+1 = 4094
+x+2= 4092+2 = 4096
+x+3= 4092+3 = 4098
+
+◦ x for declarado como float?
+float = 4 bytes
+x+1= 4092+1 = 4094
+x+2= 4092+2 = 4100
+x+3= 4092+3 = 4104
+
+◦ x for declarado como double?
+double = 8 bytes
+x+1= 4092+1 = 4100
+x+2= 4092+2 = 4108
+x+3= 4092+3 = 4116
