@@ -220,7 +220,172 @@
 
       - Ao que parece ouve uma diferença no resultado pois, no programa os tipos int e float 
       possuem o mesmo tamanho, ao contrario do que supõe o enunciado.
+      
+      
+- QUESTÃO 11:
+
+	    int main(){
+ 	    float aloha[10], coisas[10][5], *pf, value = 2.2;
+	    int i=3;
+	    
+	    aloha[2] = value;			// valido
+	    
+	    scanf("%f", &aloha);		// válido, mas se a variavel "&aloha" não for prenchida provavelmente havera um erro no programa.
+	    
+	    aloha = value";			// Invalido, pois um array não pode receber valores sem refereciar o endereço da posição dele mesmo
+	    					// onde irá ser preenchido.
+						
+	    printf("%f", aloha);		// Válido, mas somente se &aloha foi preenchida anteriormente, caso contrario vai gerar um erro
+	    
+	    coisas[4][4] = aloha[3];		//Válido
+	    
+	    coisas[5] =aloha;			// Inválido, pois cada elemento do array só consegue receber valores e não outro array, para fazer 
+	    					// isso seria necessário uma "struct" 
+						
+	    pf = value;				//Invalido, pois pf é um ponteiro e nesse caso para ela receber o endereço de "value" precisaria 
+	    					// dos operadores * ou & que fazem a derefenciação e referenciação.
+	    pf = aloha;				//Válido
+	    }
+
+
+- QUESTÃO 12:
+
+	Programa:
+	void troca(float *a,float *b){
+		float aux;
+		aux=*a;*a=*b;*b=aux;
+		printf("1/x + y = %.2f\n",(1/(*a))+*b);
+	}
+	int main(){
+		float x =1.25, y =8.1;
+		printf("1/x + y = %.2f\n",((1/(x))+ y));
+		troca(&x,&y);
+		printf("1/x + y = %.2f",(1/(x))+y);
+
+	}
+
+	saída:
+		1/x + y = 8.90
+		1/x + y = 1.37
+		1/x + y = 1.37
+		
+	- O programa ultiza as variaveis "x" e "y" do tipo float para fazer uma operação, logo depois os valores delas são trocados e e novamente 
+	feita a operação, mas o resultado é diferente já que os valores foram trocados.
+	
+	- Como podemos ver os parametros da função foram repassados por referencia com o operador "&", isso permite que toda e qualquer 
+	manipulação da variavel seja alterada e não apenas "localmente" na função. Os ponteiros por sua vez atuam localmente e apontam
+	para as variaveis desejadas onde auxiliam em suas mudanças ja que possuem o mesmo endereço.
+
+
+- QUESTÃO 13:
+	
+	Programa:
+	void ordenar(float *v, int n){
+	    int i, j;
+	    float x;
+	    for(i = 1; i < n; i++) {
+		x = v[i];
+		j = i - 1;
+		while(j >= 0 && v[j] > x) {
+		    v[j+1] = v[j];
+		    j--;
+		}
+		v[j+1] = x;
+	    }
+	}
+	int main(){
+	
+		float *p;
+		int n,i;
+	    printf("Tamanho do vetor: ");
+	    scanf("%d",&n);
+	    
+	    p=(float*)(malloc(n*sizeof(float)));
+
+	    for (i=0;i<n;i++){
+		printf("Elemento no indice [%d] = ",i);
+		scanf("%f",&p[i]);
+	    }
+	    printf("\n");
+	    for (i=0;i<n;i++){
+	       printf("%.2f ",p[i]);
+	    }
+	    printf("\n");
+	    ordenar(p,n);
+
+	    for (i=0;i<n;i++){
+	       printf("%.2f ",p[i]);
+	    }
+	    free(p); 
+	    return 0;
+	}
+
+
+- QUESTÃO 14:
+
+	Programa:
+	
+	int comparador(const void *a, const void *b) {		//essa função é uma espécie de "suporte" no qual auxilia na execução da função qsort(), ela recebe dois ponteiros "void" que serivão 
+								// para compara-los entre si e verificar se são iguais, maiores ou menores
+								
+	    if (*(int*)a==*(int*)b){				// tranforma os valores de b e a em inteiros e compara os conteudos por dereferenciação, SE forem iguais a função comparador retorna 0
+		return 0; // são iguais
+	    }else{
+		if (*(int*)a<*(int*)b){				//SENÃO forem iguais novamente serão tranformados em inteiros e comprardos, mas agora para saber se "a" é menor b"
+		    return -1; // vem antes			// SE "a" for menor que "b" comparador retorna -1, o que indica que "a" vem ANTES que "b" em ordem crescente
+		}else{			
+		    return 1; // vem depois			// SENÃO "a" será maior que "b" e a função comparador retorna 1, o que indica que "a" vem DEPOIS que "b" em ordem crescente
+		}
+	    }
+	}
+
+	int main(){
+		float *p;					// O ponteiro "p" do tipo float é declarado, e logo abaixo a variaveis "n"(para o tamanho do array) e "i"(para o uso do laço FOR)do tipo int tambem
+		int n,i
+	    printf("Tamanho do vetor: ");			
+	    scanf("%d",&n);					// recebe o tamanho do array que é atribuido a variável "n"
+	    p=(float*)(malloc(n*sizeof(float)));
+	    for (i=0;i<n;i++){
+		printf("Elemento no indice [%d] = ",i);
+		scanf("%f",&p[i]);
+
+	    }
+	    printf("\n");
+	    for (i=0;i<n;i++){
+	       printf("%.2f ",p[i]);
+	    }
+	    printf("\n");
+		qsort(p,n,sizeof(float),comparador);
+	    for (i=0;i<n;i++){
+	       printf("%.2f ",p[i]);
+	    }
+	    free(p); 	// libera a memoria 
+	    return 0;
+	}
 
 
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
