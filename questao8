@@ -1,8 +1,0 @@
-- O primeiro programa com as saídas 4, 9 e 13 está somando "i" unidades ao endereço do array "vet" e depois
-ultiliza a proriedade de dereferenciação para acessar o conteudo do "novo" endereço e imprimi o resultado 
-em decimal("%d"). A variavel inteira "i" consegue ao final do processo percorer todos os elementos do array,
-que possui o endereço fixo, com o auxilo dessa variavel inteira.
-
-- O segundo programa com as saídas 61FF10, 61FF14 e 61FF18 ultiliza o mesmo proceso que o primeiro programa,
-contudo ele de forma mais simples só adicina unidades ao endereço do array "vet" com o auxilio da variavel "i" 
-e no fim imprime o "novo" endereço em hexadecimal("%x").
