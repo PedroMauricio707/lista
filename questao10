@@ -1,0 +1,226 @@
+
+  
+- QUESTÃO 01:
+    p == &i: 1
+    *p - *q: -2
+    **&p: 3
+    3 - *p/(*q) + 7: 10
+    
+
+- QUESTÃO 02:
+    61ff1c
+    4096
+    4094
+    12282
+    4098
+    
+    
+- QUESTÃO 03:
+  ********************************
+	p = i; 		// Resultado: Há problema( porém o programa ainda será compilado).
+	q = &j;		// Resultado: Não há problema.
+	p = &*&i;	// Resultado: Não há problema.
+	i = (*&)j;	// Resultado: Há problema( ilegal).
+	i = *&j;	// Resultado: Não há problema.
+	i = *&*&j;	// Resultado: Não há problema.
+	q = *p;		// Resultado: Há problema( porém o programa ainda será compilado).
+	i = (*p)++ + *q;// Resultado: Não há problema.
+  ***********************************
+    - Somente a "i = (*&)j;" está incorreto, pois a variável j a ser manipulada está fora dos parênteses, como 
+    eles estão vazios contendo apenas os operadores * e & não é possível fazer as operações desejadas.
+
+
+- QUESTÃO 04:
+
+      /* (a) */
+      valor = 10;
+      p1 = &valor;
+      *p1 = 20;
+      printf("%d \n", valor);
+      -->SAÍDA: 20
+      -
+      
+      /* (b) */
+      temp = 26.5;
+      p2 = &temp;
+      *p2 = 29.0;
+      printf("%.1f \n", temp);
+      -->SAÍDA:29.0
+      
+      /* (c) */
+      p3 = &nome[0];
+      aux = *p3;
+      printf("%c \n", aux);
+      -->SAÍDA:P
+      
+      /* (d) */
+      p3 = &nome[4];
+      aux = *p3;
+      printf("%c \n", aux);
+      -->SAÍDA:e
+      
+      /* (e) */
+      p3 = nome;
+      printf("%c \n", *p3);
+      -->SAÍDA:P
+      
+      /* (f) */
+      p3 = p3 +4;
+      printf("%c \n", *p3);
+      -->SAÍDA:e
+      
+      /* (g) */
+      p3--;
+      printf("%c \n", *p3);
+      -->SAÍDA:t
+      
+      /* (h) */
+      vetor[0] = 31;
+      vetor[1] = 45;
+      vetor[2] = 27;
+      p4 = vetor;
+      idade = *p4;
+      printf("%d \n", idade);
+      -->SAÍDA:31
+      
+      /* (i) */
+      p5 = p4 +1;
+      idade = *p5;
+      printf("%d \n", idade);
+      -->SAÍDA:45
+      
+      /* (j) */
+      p4 = p5 +1;
+      idade = *p4;
+      printf("%d \n ", idade);
+      -->SAÍDA:27
+      
+      
+      /* (l) */
+      p4 = p4 -2;
+      idade = *p4;
+      printf("%d \n", idade);
+      -->SAÍDA:31
+      
+      /* (m) */
+      p5 = &vetor[2] - 1;
+      printf("%d \n", *p5);
+      -->SAÍDA:45
+      
+      /* (n) */
+      p5++;
+      printf("%d \n", *p5);
+      -->SAÍDA:27
+      
+    - Todas as saídas estão coerentes com o codigo 
+    
+    
+- QUESTÃO 05:
+
+    contador  /valor          /valor            /endereco           /endereco
+    i = 0     vet[0] = 1.1    *(f + 0) = 1.1    &vet[0] = 61FF04    (f + 0) = 61FF04
+    i = 1     vet[1] = 2.2    *(f + 1) = 2.2    &vet[1] = 61FF08    (f + 1) = 61FF08
+    i = 2     vet[2] = 3.3    *(f + 2) = 3.3    &vet[2] = 61FF0C    (f + 2) = 61FF0C
+    i = 3     vet[3] = 4.4    *(f + 3) = 4.4    &vet[3] = 61FF10    (f + 3) = 61FF10
+    i = 4     vet[4] = 5.5    *(f + 4) = 5.5    &vet[4] = 61FF14    (f + 4) = 61FF14
+
+    -Todas as saídas são as esperadas, pois tanto o vetor "vet" quanto o ponteiro "f" 
+    estão sendo usados em operações em que os seus endereços e valores são os primeiros 
+    do array, assim podemos afirmar que é a variavel inteira "i" que está sendo usada 
+    para incrementar e gerar as saídas dentro do laço FOR.
+    
+    
+- QUESTÃO 06:
+
+    *(pulo + 2);
+    - Pois quando se usa o operador " * " está lidando com o "conteudo" dos indices dos vetores, 
+    logo o que inicialmente seria lido como "0" ao incremnetarmos 2 teremos acesso ao terceiro elemento do vetor.
+
+
+- QUESTÃO 07:
+
+    p = mat + 1;
+    x = (*mat)++;
+     - A primeira expressão é valida porque p está recebendo o endereço de "mat" e somando em uma unidade e assim fazendo 
+     o endereço aual de "p" caminhar em 4 bytes. que não seria possivel fazer com o array mat porque seu endereço é fixo.
+     - A ultima expressão tambem é válida.
+    
+    
+- QUESTÃO 08:
+    - O primeiro programa com as saídas 4, 9 e 13 está somando "i" unidades ao endereço do array "vet" e depois
+    ultiliza a proriedade de dereferenciação para acessar o conteudo do "novo" endereço e imprimi o resultado 
+    em decimal("%d"). A variavel inteira "i" consegue ao final do processo percorer todos os elementos do array,
+    que possui o endereço fixo, com o auxilo dessa variavel inteira.
+
+    - O segundo programa com as saídas 61FF10, 61FF14 e 61FF18 ultiliza o mesmo proceso que o primeiro programa,
+    contudo ele de forma mais simples só adicina unidades ao endereço do array "vet" com o auxilio da variavel "i" 
+    e no fim imprime o "novo" endereço em hexadecimal("%x").
+
+
+- QUESTÃO 09:
+
+    ◦ x for declarado como char?      ◦ x for declarado como int?
+    char = 1 byte                     int = 2 bytes
+    x+1= 4092                         x+1= 4092
+    x+2= 4093                         x+2= 4094
+    x+3= 4094                         x+3= 4096
+    
+    ◦ x for declarado como float?     ◦ x for declarado como double?
+    float = 4 bytes                   double = 8 bytes
+    x+1= 4092                         x+1= 4092
+    x+2= 4096                         x+2= 4100
+    x+3= 4100                         x+3= 4108
+    
+    
+- QUESTÃO 10:
+  
+   PROGRAMA:
+   int main(){
+ 	 char x1[4] = {"123"};
+ 	 int x2[4] = {1,2,3},i;
+ 	 float x3[4] = {1,2,3};
+ 	 double x4[4] = {1,2,3};
+ 	 for(i=0;i<3;i++){
+  	  printf("char: x + %d = %d     \n",i+1 ,(x1+i));
+ 	 }
+ 	 printf("\n");
+ 	 for(i=0;i<3;i++){
+  	  printf("int: x + %d = %d \n",i+1 ,(x2+i));
+ 	 }
+ 	 printf("\n");
+ 	 for(i=0;i<3;i++){
+  	  printf("float: x + %d = %d \n",i+1 ,(x3+i));
+ 	 }
+ 	 printf("\n");
+ 	 for(i=0;i<3;i++){
+ 	   printf("double: x + %d = %d \n",i+1 ,(x4+i));
+ 	 }
+	}
+   SAÍDAS DO PROGRAMA:   
+      char: x + 1 = 6422296
+      char: x + 2 = 6422297
+      char: x + 3 = 6422298
+
+      int: x + 1 = 6422280
+      int: x + 2 = 6422284
+      int: x + 3 = 6422288
+
+      float: x + 1 = 6422264
+      float: x + 2 = 6422268
+      float: x + 3 = 6422272
+
+      double: x + 1 = 6422232
+      double: x + 2 = 6422240
+      double: x + 3 = 6422248
+      
+      char:       int:        float:      double:     //questao anterior
+      x+1= 4092   x+1= 4092   x+1= 4092   x+1= 4092
+      x+2= 4093   x+2= 4094   x+2= 4096   x+2= 4100
+      x+3= 4094   x+3= 4096   x+3= 4100   x+3= 4108
+
+      - Ao que parece ouve uma diferença no resultado pois, no programa os tipos int e float 
+      possuem o mesmo tamanho, ao contrario do que supõe o enunciado.
+
+
+
+    
