@@ -1,0 +1,37 @@
+- QUESTÃO 17:
+
+	PROGRAMA:
+	void somavet(int *a, int *b, int *c,int n){
+	    int i;
+	    for(i=0;i<n;i++){
+		c[i]=a[i] + b[i];
+	    }
+	}
+
+	int main(void){
+	    int *x,*y,*z;
+	    int i;
+	    x=(int*)(malloc(4*sizeof(int)));
+	    printf("Vetor 1:\n");
+	    for(i=0;i<4;i++){
+		scanf("%d",&x[i]);
+	    }
+	    printf("Vetor 2:\n");
+	    y=(int*)(malloc(4*sizeof(int)));
+	    for(i=0;i<4;i++){
+		scanf("%d",&y[i]);
+	    }
+	    z=(int*)(malloc(4*sizeof(int)));
+
+	    somavet(x,y,z,4);
+
+	    for(i=0;i<4;i++){
+		printf("%d ",z[i]);
+	    }
+	    free(x);
+	    free(y);
+	    free(z);
+	return 0;
+	}
+
+	
