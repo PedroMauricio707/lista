@@ -1,0 +1,90 @@
+- QUESTÃO 18:
+
+	PROGRAMA:
+	
+	void multiplica(int **a,int nla,int nca,int **b,int ncb,int **c){
+	    int aux=0,i,j,k;
+	    for(i=0;i<nla;i++){
+		for(j=0;j<nla;j++){
+		    aux=0;
+		    for(k=0;k<nca;k++){
+			aux= aux + a[i][k]*b[k][j];
+		    }
+		    c[i][j]=aux;                                                  //Penchimento da Matriz C que é a Multiplicação de A por B
+		}
+	    }
+	}
+	
+	void imprimi(int **a,int **b,int **c){                			  //impressão das Matrizes A,B e C
+	    int i,j;
+	    printf("A :\n");
+	    for(i=0;i<2;i++){
+		for(j=0;j<2;j++){
+		    printf("%d  ",a[i][j]);
+		}
+		printf("\n");
+	    }
+	    printf("\n");
+	    printf("B :\n");
+	    for(i=0;i<2;i++){
+		for(j=0;j<2;j++){
+		    printf("%d  ",b[i][j]);
+		}
+		printf("\n");
+	    }
+	    printf("\n");
+	    printf("C = A x B: \n");
+	    for(i=0;i<2;i++){
+		for(j=0;j<2;j++){
+		    printf("%d  ",c[i][j]);
+		}
+		printf("\n");
+	    }
+	}
+	
+	int main(void){
+	    int **C,**A,**B;
+	    int i,j;
+	    A= (int **)malloc(2 * sizeof(int*));
+	    B= (int **)malloc(2 * sizeof(int*));
+	    C= (int **)malloc(2 * sizeof(int*));
+	    printf("MATRIZ A:\n");
+	    for(i=0;i<2;i++){
+		A[i]= (int *)malloc(2 * sizeof(int));
+		for(j=0;j<2;j++){
+		    printf("Linha [%d] coluna[%d]= ",i+1,j+1);
+		    scanf("%d",&A[i][j]);                                	   //Alocação de espaço na memoria e preenchimento da Matriz A
+		}
+	    }
+	    printf("\nMATRIZ B:\n");
+	    for(i=0;i<2;i++){
+		B[i]= (int *)malloc(2 * sizeof(int));
+		for(j=0;j<2;j++){
+		    printf("Linha [%d] coluna[%d] = ",i+1,j+1);
+		    scanf("%d",&B[i][j]);                                	   //Alocação de espaço na memoria e preenchimento da Matriz B
+		}
+	    }
+	    for(i=0;i<2;i++){
+		for(j=0;j<2;j++){
+		    C[i]= (int *)malloc(2 * sizeof(int));                	   //Alocação de espaço na memoria para a Matriz C
+		}
+	    }
+	    printf("\n");
+	    multiplica(A,2,2,B,2,C);
+	    imprimi(A,B,C);
+	    for(i=0;i<2;i++){							  // Lberando espaço alocado para as Matrizes A, B e C
+		free(A[i]);
+		free(B[i]);
+		free(C[i]);
+	    }
+	    free(A);
+	    free(B);
+	    free(C);
+	return 0;
+	}
+
+
+
+
+
+
