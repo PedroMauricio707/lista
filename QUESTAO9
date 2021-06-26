@@ -1,0 +1,14 @@
+- QUESTÃO 09:
+
+    ◦ x for declarado como char?      ◦ x for declarado como int?
+    char = 1 byte                     int = 2 bytes
+    x+1= 4092                         x+1= 4092
+    x+2= 4093                         x+2= 4094
+    x+3= 4094                         x+3= 4096
+    
+    ◦ x for declarado como float?     ◦ x for declarado como double?
+    float = 4 bytes                   double = 8 bytes
+    x+1= 4092                         x+1= 4092
+    x+2= 4096                         x+2= 4100
+    x+3= 4100                         x+3= 4108
+    
