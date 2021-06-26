@@ -1,0 +1,42 @@
+- QUESTÃO 13:
+	
+	Programa:
+	void ordenar(float *v, int n){
+	    int i, j;
+	    float x;
+	    for(i = 1; i < n; i++) {
+		x = v[i];
+		j = i - 1;
+		while(j >= 0 && v[j] > x) {
+		    v[j+1] = v[j];
+		    j--;
+		}
+		v[j+1] = x;
+	    }
+	}
+	int main(){
+	
+		float *p;
+		int n,i;
+	    printf("Tamanho do vetor: ");
+	    scanf("%d",&n);
+	    
+	    p=(float*)(malloc(n*sizeof(float)));
+
+	    for (i=0;i<n;i++){
+		printf("Elemento no indice [%d] = ",i);
+		scanf("%f",&p[i]);
+	    }
+	    printf("\n");
+	    for (i=0;i<n;i++){
+	       printf("%.2f ",p[i]);
+	    }
+	    printf("\n");
+	    ordenar(p,n);
+
+	    for (i=0;i<n;i++){
+	       printf("%.2f ",p[i]);
+	    }
+	    free(p); 
+	    return 0;
+	}
