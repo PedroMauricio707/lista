@@ -1,0 +1,5 @@
+- QUESTÃO 06:
+
+    *(pulo + 2);
+    - Pois quando se usa o operador " * " está lidando com o "conteudo" dos indices dos vetores, 
+    logo o que inicialmente seria lido como "0" ao incremnetarmos 2 teremos acesso ao terceiro elemento do vetor.
