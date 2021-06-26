@@ -1,0 +1,27 @@
+- QUESTÃO 12:
+
+	Programa:
+	void troca(float *a,float *b){
+		float aux;
+		aux=*a;*a=*b;*b=aux;
+		printf("1/x + y = %.2f\n",(1/(*a))+*b);
+	}
+	int main(){
+		float x =1.25, y =8.1;
+		printf("1/x + y = %.2f\n",((1/(x))+ y));
+		troca(&x,&y);
+		printf("1/x + y = %.2f",(1/(x))+y);
+
+	}
+
+	saída:
+		1/x + y = 8.90
+		1/x + y = 1.37
+		1/x + y = 1.37
+		
+	- O programa ultiza as variaveis "x" e "y" do tipo float para fazer uma operação, logo depois os valores delas são trocados e e novamente 
+	feita a operação, mas o resultado é diferente já que os valores foram trocados.
+	
+	- Como podemos ver os parametros da função foram repassados por referencia com o operador "&", isso permite que toda e qualquer 
+	manipulação da variavel seja alterada e não apenas "localmente" na função. Os ponteiros por sua vez atuam localmente e apontam
+	para as variaveis desejadas onde auxiliam em suas mudanças ja que possuem o mesmo endereço.
