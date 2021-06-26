@@ -1,0 +1,24 @@
+- QUESTÃO 11:
+
+	    int main(){
+ 	    float aloha[10], coisas[10][5], *pf, value = 2.2;
+	    int i=3;
+	    
+	    aloha[2] = value;			// valido
+	    
+	    scanf("%f", &aloha);		// válido, mas se a variavel "&aloha" não for prenchida provavelmente havera um erro no programa.
+	    
+	    aloha = value";			// Invalido, pois um array não pode receber valores sem refereciar o endereço da posição dele mesmo
+	    					// onde irá ser preenchido.
+						
+	    printf("%f", aloha);		// Válido, mas somente se &aloha foi preenchida anteriormente, caso contrario vai gerar um erro
+	    
+	    coisas[4][4] = aloha[3];		//Válido
+	    
+	    coisas[5] =aloha;			// Inválido, pois cada elemento do array só consegue receber valores e não outro array, para fazer 
+	    					// isso seria necessário uma "struct" 
+						
+	    pf = value;				//Invalido, pois pf é um ponteiro e nesse caso para ela receber o endereço de "value" precisaria 
+	    					// dos operadores * ou & que fazem a derefenciação e referenciação.
+	    pf = aloha;				//Válido
+	    }
