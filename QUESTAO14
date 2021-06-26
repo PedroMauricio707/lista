@@ -1,0 +1,46 @@
+- QUESTÃO 14:
+
+	Programa:
+	
+	int comparador(const void *a, const void *b) {		//essa função é uma espécie de "suporte" no qual auxilia na execução da função qsort(), ela recebe dois ponteiros "void" que serivão 
+								// para compara-los entre si e verificar se são iguais, maiores ou menores
+								
+	    if (*(int*)a==*(int*)b){				// tranforma os valores de b e a em inteiros e compara os conteudos por dereferenciação, SE forem iguais a função comparador retorna 0
+		return 0; // são iguais
+	    }else{
+		if (*(int*)a<*(int*)b){				//SENÃO forem iguais novamente serão tranformados em inteiros e comprardos, mas agora para saber se "a" é menor b"
+		    return -1; // vem antes			// SE "a" for menor que "b" comparador retorna -1, o que indica que "a" vem ANTES que "b" em ordem crescente
+		}else{			
+		    return 1; // vem depois			// SENÃO "a" será maior que "b" e a função comparador retorna 1, o que indica que "a" vem DEPOIS que "b" em ordem crescente
+		}
+	    }
+	}
+
+	int main(){
+		float *p;					// O ponteiro "p" do tipo float é declarado, e logo abaixo a variaveis "n"(para o tamanho do array) e "i"(para o uso do laço FOR)do tipo int tambem
+		int n,i
+	    printf("Tamanho do vetor: ");			
+	    scanf("%d",&n);					// recebe o tamanho do array que é atribuido a variável "n"
+	    
+	    p=(float*)(malloc(n*sizeof(float)));		// "p" faz uso da alocação dinamica de memoria. A função malloc recebe como parametro a multiplicação de um inteiro (tamanho da array) pelo quantidade
+	    							// de bytes que o tipo da variavel usa(que nesse caso é float) fornecido pela função Sizeof(), após isso a função malloc retorna um valor "void" que 
+								// é convertido para float, que por sua vez é inserido em p.
+	    for (i=0;i<n;i++){
+		printf("Elemento no indice [%d] = ",i);		
+		scanf("%f",&p[i]);				// detro de um laço FOR que será repetido n vezes, o usuario fornece os valores de cada elemento do array nas posiçoes i correspondentes a cada repetição do laço
+
+	    }
+	    printf("\n");					// quebra de linha
+	    for (i=0;i<n;i++){
+	       printf("%.2f ",p[i]);				// p é impresso antes das alteraçoes desejadas
+	    }
+	    printf("\n");					// quebra de linha
+		qsort(p,n,sizeof(float),comparador);		// A função "qsort()" recebe 4 parametros que são: o vetor a ser ordenado, o tamano desse vetor, a quantidade de bytes correspodentes ao tipo do 
+								// vetor e por fim uma função auxiliar que fornece durante a execução da qsort as ordens para a ordenação do vetor. Ao final da ordenação o vetor 
+								// será ordenado e retornado
+	    for (i=0;i<n;i++){					
+	       printf("%.2f ",p[i]);				// imprime o vetor que agora esta ordenado de forma crescente
+	    }
+	    free(p); 						// libera a memoria 
+	    return 0;
+	}
