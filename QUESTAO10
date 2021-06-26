@@ -1,0 +1,48 @@
+- QUESTÃO 10:
+  
+   PROGRAMA:
+   int main(){
+ 	 char x1[4] = {"123"};
+ 	 int x2[4] = {1,2,3},i;
+ 	 float x3[4] = {1,2,3};
+ 	 double x4[4] = {1,2,3};
+ 	 for(i=0;i<3;i++){
+  	  printf("char: x + %d = %d     \n",i+1 ,(x1+i));
+ 	 }
+ 	 printf("\n");
+ 	 for(i=0;i<3;i++){
+  	  printf("int: x + %d = %d \n",i+1 ,(x2+i));
+ 	 }
+ 	 printf("\n");
+ 	 for(i=0;i<3;i++){
+  	  printf("float: x + %d = %d \n",i+1 ,(x3+i));
+ 	 }
+ 	 printf("\n");
+ 	 for(i=0;i<3;i++){
+ 	   printf("double: x + %d = %d \n",i+1 ,(x4+i));
+ 	 }
+	}
+   SAÍDAS DO PROGRAMA:   
+      char: x + 1 = 6422296
+      char: x + 2 = 6422297
+      char: x + 3 = 6422298
+
+      int: x + 1 = 6422280
+      int: x + 2 = 6422284
+      int: x + 3 = 6422288
+
+      float: x + 1 = 6422264
+      float: x + 2 = 6422268
+      float: x + 3 = 6422272
+
+      double: x + 1 = 6422232
+      double: x + 2 = 6422240
+      double: x + 3 = 6422248
+      
+      char:       int:        float:      double:     //questao anterior
+      x+1= 4092   x+1= 4092   x+1= 4092   x+1= 4092
+      x+2= 4093   x+2= 4094   x+2= 4096   x+2= 4100
+      x+3= 4094   x+3= 4096   x+3= 4100   x+3= 4108
+
+      - Ao que parece ouve uma diferença no resultado pois, no programa os tipos int e float 
+      possuem o mesmo tamanho, ao contrario do que supõe o enunciado.
